@@ -20,21 +20,11 @@
     </style>
 </head>
 <body>
-    <table cellpadding="0" cellspacing="0">
-
-        <tr>
-            <th>Пользователь</th>
-            <th>Права доступа</th>
-            <th>Зарегистрирован</th>
-        </tr>
-
-        @foreach($users as $user)
-            <tr>
-                <td><a href="/users/{{ $user -> id }}">{{ $user -> user }}</td>
-                <td>{{ $user -> access_right }}</td>
-                <td>{{ $user -> registered }}</td>
-            </tr>
-        @endforeach
-    </table>
+    <p>Информация о пользователе <b>{{ $user -> user }}</b>: </p>
+        <ul>
+            <li>права доступа: <b>{{ $user -> access_right }}</b></li>
+            <li>зарегистрирован: <b>{{ $user -> registered }}</b></li>
+        </ul>
+        ,
 </body>
 </html>

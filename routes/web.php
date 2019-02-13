@@ -11,11 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/', function (){
-  $projects = App\Project::all();
-  return view('welcome', compact('projects'));
+    $projects = App\Project::all();
+    return view('index', compact('projects'));
 });
+
+Route::get('/users', 'ProjectsController@getAllUsers');
+
+/*Route::get('/users/{user}', function ($id){
+    $user = App\Project::find($id);
+    return view('user_info', compact('user'));
+});*/
+
+Route::get('/users/{user}', 'ProjectsController@showUserInfo');
